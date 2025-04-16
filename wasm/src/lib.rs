@@ -15,7 +15,8 @@ pub fn format_citations(citations: String) -> String {
     }).collect();
 
     citations.sort_by_key(|citation| {
-        citation.strip_prefix('"').unwrap_or(citation)
+        let citation = citation.strip_prefix('"').unwrap_or(citation);
+        citation.strip_prefix('“').unwrap_or(citation)
     });
 
     let citations:Vec<String> = citations.iter().map(| s| {
